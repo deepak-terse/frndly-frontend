@@ -4,7 +4,7 @@
 
 <div align="center">
 	<strong>
-		A simple, minimalistic react template to build single page applications
+		A frontend app for Frndly built with React
 	</strong>
 </div>
 
@@ -45,8 +45,8 @@
 
 ``` bash
 # clone the project
-git clone https://github.com/deepak-terse/react-boilerplate.git
-cd react-boilerplate
+git clone https://github.com/deepak-terse/frndly-frontend.git
+cd frndly-frontend
 
 # install dependencies
 npm install
