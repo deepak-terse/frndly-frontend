@@ -1,6 +1,6 @@
 <p align="center"><img width="100"src="public/favicon_io/android-chrome-512x512.png"></p>
 
-<h1 align="center"><strong>React Boilerplate</strong></h1>
+<h1 align="center"><strong>Frndly Frontend</strong></h1>
 
 <div align="center">
 	<strong>
