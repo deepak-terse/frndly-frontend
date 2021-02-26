@@ -1,0 +1,20 @@
+.Home {
+	// margin:auto;
+    height:100%;
+    display:flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.Home #heading {
+	font-size: 40px;
+    margin:10px;
+}
+
+.Home #subheading {
+	font-size: 30px;
+    margin:10px;
+}
+
+  
