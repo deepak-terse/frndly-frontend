@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/UserDetails.scss';
 import Button from '../components/form-input/Button';
 import { RouteComponentProps } from 'react-router-dom';
+import Strings from '../config/strings.json';
 
 interface MyProps extends RouteComponentProps<any> {
     location: any,
@@ -24,7 +25,7 @@ class UserDetails extends Component<MyProps, MyState> {
                     <span className="icon material-icons" onClick={this.props.history.goBack}>
                         arrow_back
                     </span>
-                    <span className="pageTitle">User Details</span>
+                    <span className="pageTitle">{Strings.labels.userDetails}</span>
                 </div>
                 <div className="userDetails">
                     <img className ="photo" src={this.props.location.state.avatar}/>
@@ -32,13 +33,13 @@ class UserDetails extends Component<MyProps, MyState> {
                     <div>
                         <Button
                             className = "button"
-                            placeholder = "See Friends"
+                            placeholder = {Strings.buttonLabels.seeFriends}
                             type = "button"
                             onClick = {() => {this.props.history.push({pathname: '/userFriendList', state: this.props.location.state})}}
                         />
                         <Button
                             className = "button"
-                            placeholder = "See Mutual Friends"
+                            placeholder = {Strings.buttonLabels.seeMutualFriends}
                             type = "button"
                             onClick = {() => {this.props.history.push({pathname: '/userMutualFriendList', state: this.props.location.state})}}
                         /> 

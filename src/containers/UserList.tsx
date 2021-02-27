@@ -3,6 +3,8 @@ import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import UserCard from '../components/UserCard';
 import '../styles/UserList.scss';
+import {getAPIs} from '../config/constants';
+import Strings from '../config/strings.json';
 
 interface MyProps extends RouteComponentProps<any> {
     history: any
@@ -34,11 +36,11 @@ class UserList extends Component<MyProps, MyState> {
                     <span className="icon material-icons" onClick={this.props.history.goBack}>
                         arrow_back
                     </span>
-                    <span className="pageTitle">User List</span>
+                    <span className="pageTitle">{Strings.labels.userList}</span>
                 </div>
                 <div className="info">
                     <span>
-                        Total: {this.state.usersCount}
+                        {Strings.labels.total}: {this.state.usersCount}
                     </span> 
                  </div>
                     {this.state.users.map((user: any, index: number) =>
@@ -47,7 +49,7 @@ class UserList extends Component<MyProps, MyState> {
                     </Link>
                 )}
                 <div className="more" onClick={this.loadMore}>
-                    <span> Load More</span>
+                    <span> {Strings.labels.loadMore}</span>
                     <span className="material-icons">
                         expand_more
                     </span>
@@ -67,7 +69,7 @@ class UserList extends Component<MyProps, MyState> {
     fetchData(){
         axios({
             method: 'post',
-            url: 'http://localhost:5000/getUsers',
+            url: getAPIs().getUsers,
             data: {
                 "take": 5,
                 "skip": this.state.users.length

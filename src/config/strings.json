@@ -1,0 +1,21 @@
+{
+    "labels": {
+        "hi": "Hi",
+        "homeWelcomeMsg": "Welcome to Frndly",
+        "userList": "User List",
+        "total": "Total",
+        "loadMore": "Load More",
+        "userDetails": "User Details",
+        "user": "User",
+        "friendList": "Friend List",
+        "mutualFriendList": "Mutual Friend List"
+    },
+    "buttonLabels": {
+        "seeUsers": "See Users",
+        "seeFriends": "See Friends",
+        "seeMutualFriends": "See Mutual Friends"
+    },
+    "responseMsg": {
+
+    }
+}

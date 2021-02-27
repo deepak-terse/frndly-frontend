@@ -3,6 +3,8 @@ import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import UserCard from '../components/UserCard';
 import '../styles/UserList.scss';
+import {getAPIs} from '../config/constants';
+import Strings from '../config/strings.json';
 
 interface MyProps extends RouteComponentProps<any> {
     location: any,
@@ -35,14 +37,14 @@ class UserFriendList extends Component<MyProps, MyState> {
                     <span className="icon material-icons" onClick={this.props.history.goBack}>
                         arrow_back
                     </span>
-                    <span className="pageTitle">Mutual Friend List</span>
+                    <span className="pageTitle">{Strings.labels.mutualFriendList}</span>
                 </div>
                 <div className="info">
                     <span>
-                        User: {this.props.location.state.firstName} {this.props.location.state.lastName}
+                        {Strings.labels.user}: {this.props.location.state.firstName} {this.props.location.state.lastName}
                     </span>
                     <span>
-                        Total: {this.state.usersCount}
+                        {Strings.labels.total}: {this.state.usersCount}
                     </span> 
                  </div>
                 {this.state.users.map((user: any, index: number) =>
@@ -57,7 +59,7 @@ class UserFriendList extends Component<MyProps, MyState> {
     componentDidMount() {
         axios({
             method: 'post',
-            url: 'http://localhost:5000/getUserMutualFriends',
+            url: getAPIs().getUserMutualFriends,
             data: {
                 userId: this.props.location.state.id
             }

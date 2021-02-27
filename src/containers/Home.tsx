@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from '../components/form-input/Button';
 import '../styles/Home.scss';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
+import Strings from '../config/strings.json';
 
 interface IProps extends RouteComponentProps<any> {
     history: any
@@ -23,11 +24,11 @@ class Home extends Component<IProps> {
     render() {
         return (
             <div className="Home">
-                <span id="heading">Hi!</span>
-                <span id="subheading">Welcome to Frndly</span>
+                <span id="heading">{Strings.labels.hi}!</span>
+                <span id="subheading">{Strings.labels.homeWelcomeMsg}</span>
 
                 <Button
-                    placeholder = "See Users"
+                    placeholder = {Strings.buttonLabels.seeUsers}
                     type = "button"
                     onClick = {this.goToUserList}
                 />
