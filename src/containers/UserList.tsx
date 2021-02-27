@@ -32,7 +32,7 @@ class UserList extends Component<UserListProps, UserListState> {
 
     render() {
         return (
-            <div>
+            <div className="userList">
                 <div className="header">
                     <span className="icon material-icons" onClick={this.props.history.goBack}>
                         arrow_back

@@ -17,14 +17,14 @@ class UserDetails extends Component<UserDetailsProps> {
 
     render() {
         return (
-            <React.Fragment>
+            <div className="userDetails">
                 <div className="header">
                     <span className="icon material-icons" onClick={this.props.history.goBack}>
                         arrow_back
                     </span>
                     <span className="pageTitle">{Strings.labels.userDetails}</span>
                 </div>
-                <div className="userDetails">
+                <div className="userDetailsCard">
                     <img className ="photo" src={this.props.location.state.avatar}/>
                     <span className = "name">{this.props.location.state.firstName} {this.props.location.state.lastName}</span>
                     <div>
@@ -42,7 +42,7 @@ class UserDetails extends Component<UserDetailsProps> {
                         /> 
                     </div>
                 </div>
-            </React.Fragment>
+            </div>
         )
     }
 }
