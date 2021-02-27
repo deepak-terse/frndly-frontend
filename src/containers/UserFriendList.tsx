@@ -1,84 +1,70 @@
 import React, { Component } from 'react';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
+import {Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import UserCard from '../components/UserCard';
 import '../styles/UserList.scss';
 
 interface MyProps extends RouteComponentProps<any> {
+    location: any,
     history: any
 }
   
 interface MyState {
     users: any
     usersCount: number
-    skip: number
 }
 
-class UserList extends Component<MyProps, MyState> {
+class UserFriendList extends Component<MyProps, MyState> {
     constructor(props: any) {
-        console.log("Constructor");
         super(props);
         this.state = {
             users: [],
-            usersCount: 0,
-            skip: 0
+            usersCount: 0
         };
-        this.loadMore = this.loadMore.bind(this);
-        this.fetchData = this.fetchData.bind(this);
+        this.goToUserDetails = this.goToUserDetails.bind(this);
+    }
 
+    goToUserDetails() {
+        console.log('goToUserList called');
+        this.props.history.push('/userDetails', )
     }
 
     render() {
-        console.log("Render");
         return (
             <div>
                 <div className="header">
                     <span className="icon material-icons" onClick={this.props.history.goBack}>
                         arrow_back
-                    </span>
-                    <span className="pageTitle">User List</span>
+                    </span>                    
+                    <span className="pageTitle">Friend List</span>
                 </div>
                 <div className="info">
                     <span>
+                        User: {this.props.location.state.firstName} {this.props.location.state.lastName}
+                    </span>
+                    <span>
                         Total: {this.state.usersCount}
                     </span> 
-                 </div>
-                    {this.state.users.map((user: any, index: number) =>
+                </div>
+                {this.state.users.map((user: any, index: number) =>
                     <Link key={index} to = {{pathname: '/userDetails', state: user} } >
                         <UserCard  user={user}/>
                     </Link>
                 )}
-                <div className="more" onClick={this.loadMore}>
-                    <span> Load More</span>
-                    <span className="material-icons">
-                        expand_more
-                    </span>
-                </div>
             </div>
         )
     }
 
     componentDidMount() {
-        console.log("componentDidMount");
-        this.fetchData();
-    }
-
-    loadMore() {
-        this.fetchData();
-    }
-
-    fetchData(){
-        console.log("fetchData");
         axios({
             method: 'post',
-            url: 'http://localhost:3000/getUsers',
+            url: 'http://localhost:3000/getUserFriends',
             data: {
-                "take": 5,
-                "skip": this.state.users.length
+                userId: this.props.location.state.id
             }
         }).then((response) => {
             this.setState({ 
-                users: this.state.users.concat(response.data.data),
+                users: response.data.data,
                 usersCount: response.data.count
             });
 
@@ -89,4 +75,4 @@ class UserList extends Component<MyProps, MyState> {
     }
 }
 
-export default withRouter(UserList);
+export default withRouter(UserFriendList);
