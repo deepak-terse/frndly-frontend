@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import UserCard from '../components/UserCard';
-import '../styles/UserList.scss';
 import {getAPIs} from '../config/constants';
 import Strings from '../config/strings.json';
+import '../styles/UserList.scss';
 
-interface MyProps extends RouteComponentProps<any> {
+
+interface UserListProps extends RouteComponentProps<any> {
     history: any
 }
   
-interface MyState {
+interface UserListState {
     users: any
     usersCount: number
     skip: number
 }
 
-class UserList extends Component<MyProps, MyState> {
+class UserList extends Component<UserListProps, UserListState> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -24,9 +25,9 @@ class UserList extends Component<MyProps, MyState> {
             usersCount: 0,
             skip: 0
         };
+        
         this.loadMore = this.loadMore.bind(this);
         this.fetchData = this.fetchData.bind(this);
-
     }
 
     render() {

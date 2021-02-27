@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import UserCard from '../components/UserCard';
-import '../styles/UserList.scss';
 import {getAPIs} from '../config/constants';
 import Strings from '../config/strings.json';
+import '../styles/UserList.scss';
 
-interface MyProps extends RouteComponentProps<any> {
+
+interface UserMFListProps extends RouteComponentProps<any> {
     location: any,
     history: any
 }
   
-interface MyState {
+interface UserMFListState {
     users: any
     usersCount: number
 }
 
-class UserFriendList extends Component<MyProps, MyState> {
+class UserMutualFriendList extends Component<UserMFListProps, UserMFListState> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -73,4 +74,4 @@ class UserFriendList extends Component<MyProps, MyState> {
     }
 }
 
-export default withRouter(UserFriendList);
+export default withRouter(UserMutualFriendList);

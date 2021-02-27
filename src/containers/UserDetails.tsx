@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
-import '../styles/UserDetails.scss';
 import Button from '../components/form-input/Button';
 import { RouteComponentProps } from 'react-router-dom';
 import Strings from '../config/strings.json';
+import '../styles/UserDetails.scss';
 
-interface MyProps extends RouteComponentProps<any> {
+
+interface UserDetailsProps extends RouteComponentProps<any> {
     location: any,
     history: any
 }
-  
-interface MyState {
-}
 
-class UserDetails extends Component<MyProps, MyState> {
+class UserDetails extends Component<UserDetailsProps> {
     constructor(props: any) {
         super(props);
-        this.state = {}
     }
 
     render() {

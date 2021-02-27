@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
 import Button from '../components/form-input/Button';
-import '../styles/Home.scss';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Strings from '../config/strings.json';
+import '../styles/Home.scss';
 
-interface IProps extends RouteComponentProps<any> {
+
+interface UserDetailsProps extends RouteComponentProps<any> {
     history: any
 }
 
-class Home extends Component<IProps> {
-
+class Home extends Component<UserDetailsProps> {
     constructor(props: any) {
         super(props);
-        this.state = {}
-
         this.goToUserList = this.goToUserList.bind(this);
-    }
-
-    goToUserList() {
-        this.props.history.push('/userList')
     }
 
     render() {
@@ -34,6 +28,10 @@ class Home extends Component<IProps> {
                 />
             </div>
         )
+    }
+
+    goToUserList() {
+        this.props.history.push('/userList')
     }
 }
 

@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 import {Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import UserCard from '../components/UserCard';
-import '../styles/UserList.scss';
 import {getAPIs} from '../config/constants';
 import Strings from '../config/strings.json';
+import '../styles/UserList.scss';
 
-interface MyProps extends RouteComponentProps<any> {
+interface UserFListProps extends RouteComponentProps<any> {
     location: any,
     history: any
 }
   
-interface MyState {
+interface UserFListState {
     users: any
     usersCount: number
 }
 
-class UserFriendList extends Component<MyProps, MyState> {
+class UserFriendList extends Component<UserFListProps, UserFListState> {
     constructor(props: any) {
         super(props);
         this.state = {
