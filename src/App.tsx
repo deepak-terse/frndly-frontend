@@ -9,6 +9,7 @@ import UserMutualFriendList from './containers/UserMutualFriendList'
 
 function App() {
 	return (
+		// Configuring all routes with its respective Components
 		<BrowserRouter>
 			<Switch>
 				<Route exact path="/" component={Home} />

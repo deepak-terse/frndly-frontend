@@ -65,11 +65,16 @@ class UserMutualFriendList extends Component<UserMFListProps, UserMFListState> {
                 userId: this.props.location.state.id
             }
         }).then((response) => {
-            this.setState({ 
-                users: response.data.data.result,
-                usersCount: response.data.data.count
-            });
+            if (response.data.statusCode == 200){
+                this.setState({ 
+                    users: response.data.data.result,
+                    usersCount: response.data.data.count
+                });
+            } else {
+                console.log('Error found : ', response.data.message);
+            }
         }).catch((error)=>{
+            console.log('Error found : ', error);
         });
     }
 }

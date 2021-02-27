@@ -76,12 +76,18 @@ class UserList extends Component<UserListProps, UserListState> {
                 "skip": this.state.users.length
             }
         }).then((response) => {
-            this.setState({ 
-                users: this.state.users.concat(response.data.data.result),
-                usersCount: response.data.data.count
-            });
+            if (response.data.statusCode == 200){
+                this.setState({ 
+                    users: this.state.users.concat(response.data.data.result),
+                    usersCount: response.data.data.count
+                });
+            } else {
+                console.log('Error found : ', response.data.message);
+            }
+
 
         }).catch((error)=>{
+            console.log('Error found: ', error)
         });
     }
 }
