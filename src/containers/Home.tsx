@@ -17,7 +17,6 @@ class Home extends Component<IProps> {
     }
 
     goToUserList() {
-        console.log('goToUserList called');
         this.props.history.push('/userList')
     }
 

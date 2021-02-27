@@ -1,9 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import styles from '../../styles/FormInput.module.scss'
 
 export default function Button(props: any) {
-    console.log(styles.input);
     return <input 
         type = {props.type}
         value = {props.placeholder}

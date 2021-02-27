@@ -16,7 +16,6 @@ interface MyState {
 
 class UserList extends Component<MyProps, MyState> {
     constructor(props: any) {
-        console.log("Constructor");
         super(props);
         this.state = {
             users: [],
@@ -29,7 +28,6 @@ class UserList extends Component<MyProps, MyState> {
     }
 
     render() {
-        console.log("Render");
         return (
             <div>
                 <div className="header">
@@ -59,7 +57,6 @@ class UserList extends Component<MyProps, MyState> {
     }
 
     componentDidMount() {
-        console.log("componentDidMount");
         this.fetchData();
     }
 
@@ -68,7 +65,6 @@ class UserList extends Component<MyProps, MyState> {
     }
 
     fetchData(){
-        console.log("fetchData");
         axios({
             method: 'post',
             url: 'http://localhost:5000/getUsers',
@@ -82,9 +78,7 @@ class UserList extends Component<MyProps, MyState> {
                 usersCount: response.data.data.count
             });
 
-            console.log(this.state.users)
         }).catch((error)=>{
-            console.log(error);
         });
     }
 }

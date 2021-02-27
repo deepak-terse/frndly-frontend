@@ -1,7 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Components.scss'
-
 
 export default function UserCard(props: any) {
     return <div className="userCard">

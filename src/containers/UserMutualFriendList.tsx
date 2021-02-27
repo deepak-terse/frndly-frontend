@@ -25,7 +25,6 @@ class UserFriendList extends Component<MyProps, MyState> {
     }
 
     goToUserDetails() {
-        console.log('goToUserList called');
         this.props.history.push('/userDetails', )
     }
 
@@ -67,10 +66,7 @@ class UserFriendList extends Component<MyProps, MyState> {
                 users: response.data.data.result,
                 usersCount: response.data.data.count
             });
-
-            console.log(this.state.users)
         }).catch((error)=>{
-            console.log(error);
         });
     }
 }
