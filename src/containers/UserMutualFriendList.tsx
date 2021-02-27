@@ -58,14 +58,14 @@ class UserFriendList extends Component<MyProps, MyState> {
     componentDidMount() {
         axios({
             method: 'post',
-            url: 'http://localhost:3000/getUserMutualFriends',
+            url: 'http://localhost:5000/getUserMutualFriends',
             data: {
                 userId: this.props.location.state.id
             }
         }).then((response) => {
             this.setState({ 
-                users: response.data.data,
-                usersCount: response.data.count
+                users: response.data.data.result,
+                usersCount: response.data.data.count
             });
 
             console.log(this.state.users)

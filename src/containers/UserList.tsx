@@ -71,15 +71,15 @@ class UserList extends Component<MyProps, MyState> {
         console.log("fetchData");
         axios({
             method: 'post',
-            url: 'http://localhost:3000/getUsers',
+            url: 'http://localhost:5000/getUsers',
             data: {
                 "take": 5,
                 "skip": this.state.users.length
             }
         }).then((response) => {
             this.setState({ 
-                users: this.state.users.concat(response.data.data),
-                usersCount: response.data.count
+                users: this.state.users.concat(response.data.data.result),
+                usersCount: response.data.data.count
             });
 
             console.log(this.state.users)
