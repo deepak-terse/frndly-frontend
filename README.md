@@ -29,11 +29,6 @@
 </div>
 
 <br>
-
-## Templates
-
-
-<br>
 <br>
 
 ## Prerequisites
@@ -66,6 +61,8 @@ npm run build
 * react-scripts
 * node-sass
 * typescript
+* axios
+* react-router-dom
 
 
 ## References
