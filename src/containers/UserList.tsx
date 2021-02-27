@@ -43,18 +43,21 @@ class UserList extends Component<UserListProps, UserListState> {
                     <span>
                         {Strings.labels.total}: {this.state.usersCount}
                     </span> 
-                 </div>
-                    {this.state.users.map((user: any, index: number) =>
+                </div>
+                {this.state.users.map((user: any, index: number) =>
                     <Link key={index} to = {{pathname: '/userDetails', state: user} } >
                         <UserCard  user={user}/>
                     </Link>
                 )}
-                <div className="more" onClick={this.loadMore}>
-                    <span> {Strings.labels.loadMore}</span>
-                    <span className="material-icons">
-                        expand_more
-                    </span>
-                </div>
+                {
+                    this.state.users.length != this.state.usersCount ? 
+                    <div className="more" onClick={this.loadMore}>
+                        <span> {Strings.labels.loadMore}</span>
+                        <span className="material-icons">
+                            expand_more
+                        </span>
+                    </div> : <div></div>
+                }
             </div>
         )
     }
