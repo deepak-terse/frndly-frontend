@@ -1,16 +1,16 @@
 {
-    "name": "react-boilerplate",
+    "name": "frndly-frontend",
     "version": "0.1.0",
-    "description": "A simple, minimalistic react template to build single page applications",
+    "description": "A frontend app for Frndly built with React",
     "private": true,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/deepak-terse/react-boilerplate.git"
+        "url": "git+https://github.com/deepak-terse/frndly-frontend.git"
     },
     "author": "Deepak Terse",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/deepak-terse/react-boilerplate/issues"
+        "url": "https://github.com/deepak-terse/frndly-frontend/issues"
     },
     "dependencies": {
         "@types/node": "^12.20.1",
